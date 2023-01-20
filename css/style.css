@@ -1269,11 +1269,11 @@ h6 {
   -webkit-transform: scale(0);
       -ms-transform: scale(0);
           transform: scale(0);
-  -webkit-transition: opacity 1, 4s ease-in-out, -webkit-transform 1s ease-in-out;
-  transition: opacity 1, 4s ease-in-out, -webkit-transform 1s ease-in-out;
-  -o-transition: opacity 1, 4s ease-in-out, transform 1s ease-in-out;
-  transition: opacity 1, 4s ease-in-out, transform 1s ease-in-out;
-  transition: opacity 1, 4s ease-in-out, transform 1s ease-in-out, -webkit-transform 1s ease-in-out;
+  -webkit-transition: opacity 1.1s ease-in-out, -webkit-transform 1.4s ease-in-out;
+  transition: opacity 1.1s ease-in-out, -webkit-transform 1.4s ease-in-out;
+  -o-transition: opacity 1.1s ease-in-out, transform 1.4s ease-in-out;
+  transition: opacity 1.1s ease-in-out, transform 1.4s ease-in-out;
+  transition: opacity 1.1s ease-in-out, transform 1.4s ease-in-out, -webkit-transform 1.4s ease-in-out;
 }
 
 .page-excly .list__item._watcher-view {

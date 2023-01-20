@@ -1350,9 +1350,9 @@ h6 {
       flex-wrap: wrap;
   row-gap: 30px;
   opacity: 0;
-  -webkit-transition: opacity 1.8s ease-in-out;
-  -o-transition: opacity 1.8s ease-in-out;
-  transition: opacity 1.8s ease-in-out;
+  -webkit-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
 }
 
 .benefits__inner._watcher-view {

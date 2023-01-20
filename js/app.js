@@ -3757,35 +3757,25 @@
     }
     const da = new DynamicAdapt("min");
     da.init();
-    $(".img-parallax").each((function() {
-        var img = $(this);
-        var imgParent = $(this).parent();
-        function parallaxImg() {
-            var speed = img.data("speed");
-            var imgY = imgParent.offset().top;
-            var winY = document.documentElement.scrollTop;
-            var winH = document.documentElement.clientHeight;
-            var parentH = imgParent.innerHeight();
-            console.log(winY);
-            var winBottom = winY + winH;
+    const imgParallax = document.querySelectorAll(".img-parallax");
+    if (imgParallax.length > 0) imgParallax.forEach((el => {
+        parallaxImg(el);
+        function parallaxImg(img) {
+            let speed = img.getAttribute("data-speed"), imgParent = img.parentNode, imgY = imgParent.offsetTop, winY = document.documentElement.scrollTop, winH = document.documentElement.clientHeight, parentH = imgParent.offsetHeight;
+            let winBottom = winY + winH;
             if (winBottom > imgY && winY < imgY + parentH) {
-                var imgBottom = (winBottom - imgY) * speed;
-                var imgTop = winH + parentH;
+                let imgBottom = (winBottom - imgY) * speed;
+                let imgTop = winH + parentH;
                 var imgPercent = imgBottom / imgTop * 120 + (50 - 50 * speed);
             }
-            img.css({
-                top: imgPercent + "%",
-                transform: "translate(-50%, -" + imgPercent + "%)"
-            });
+            img.style.cssText = `\n                top: ${imgPercent}%;\n                transform: translate(-50%, -${imgPercent}%);\n            `;
         }
-        $(document).on({
-            scroll: function() {
-                parallaxImg();
-            },
-            ready: function() {
-                parallaxImg();
-            }
-        });
+        document.addEventListener("DOMContentLoaded", (function(event) {
+            parallaxImg(el);
+        }));
+        window.addEventListener("scroll", (function(e) {
+            parallaxImg(el);
+        }));
     }));
     window["FLS"] = false;
     isWebp();
